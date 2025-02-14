@@ -1,0 +1,8 @@
+.wrapper {
+  background-color: var(--color-gray-2);
+  padding: 0px var(--wrapper-horizontal-padding);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: var(--header-height);
+}

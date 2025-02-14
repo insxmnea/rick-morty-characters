@@ -1,0 +1,7 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: var(--character-card-width);
+  border: var(--border);
+  box-shadow: var(--box-shadow);
+}
