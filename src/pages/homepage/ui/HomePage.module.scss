@@ -9,3 +9,8 @@
   justify-items: center;
   align-items: start;
 }
+
+.characterCard {
+  height: 100%;
+  width: var(--character-card-width);
+}

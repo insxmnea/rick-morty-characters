@@ -23,7 +23,7 @@ export const HomePage: FC = () => {
     <div>
       <ul className={styles.charactersCards}>
         {characters.map((character) => (
-          <li key={character.id}>
+          <li className={styles.characterCard} key={character.id}>
             <CharacterCard character={character} />
           </li>
         ))}

@@ -16,7 +16,8 @@
 
   --wrapper-horizontal-padding: 32px;
 
-  --character-card-width: 260px;
+  --character-card-width: 180px;
+  --character-image-height: 180px;
 
   --header-height: 80px;
   --footer-height: 80px;
@@ -124,13 +125,13 @@ textarea {
 }
 
 p {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 
 span {
   color: var(--color-white);
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 600;
 }
 
@@ -139,7 +140,7 @@ a {
   color: var(--color-white);
 
   &:hover {
-    opacity: 0.7;
+    color: var(--color-gray-1);
   }
 }
 

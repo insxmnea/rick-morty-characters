@@ -1,7 +1,37 @@
+.container {
+  height: 100%;
+}
+
 .wrapper {
   display: flex;
   flex-direction: column;
-  width: var(--character-card-width);
-  border: var(--border);
+  width: 100%;
+  height: 100%;
   box-shadow: var(--box-shadow);
+  border-radius: 8px;
+  overflow: hidden;
+
+  transition: all 0.3s ease-in;
+
+  &:hover {
+    .image {
+      transform: scale(120%);
+    }
+  }
+}
+
+.image {
+  height: var(--character-image-height);
+  object-fit: cover;
+
+  transition: all 0.3s ease;
+
+  z-index: -1;
+}
+
+.info {
+  background-color: var(--color-gray-2);
+  border-top: var(--border);
+  padding: 8px;
+  height: 100%;
 }

@@ -9,11 +9,17 @@ type Props = {
 
 export const CharacterCard: FC<Props> = ({ character }) => {
   return (
-    <div>
+    <div className={styles.container}>
       <Link to={"/rick-morty-characters/details"}>
         <div className={styles.wrapper}>
-          <img src={character.image} alt={character.name} />
-          <span>{character.name}</span>
+          <img
+            className={styles.image}
+            src={character.image}
+            alt={character.name}
+          />
+          <div className={styles.info}>
+            <span className={styles.text}>{character.name}</span>
+          </div>
         </div>
       </Link>
     </div>
