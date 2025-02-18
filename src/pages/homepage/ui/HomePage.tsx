@@ -7,27 +7,44 @@ import {
 } from "src/entities/character";
 import { useQuery } from "react-query";
 import { CharacterCard } from "src/widgets/character-card/ui/CharacterCard";
+import { Loader } from "src/shared/ui/loader";
+import { useSearchParams } from "react-router-dom";
+import { SearchBar } from "src/widgets/search-bar";
 
 export const HomePage: FC = () => {
   const { characters, setCharacters } = useCharactersStore();
-  const { isError, isLoading } = useQuery("characters", fetchCharacters, {
-    onSuccess: (fetchedCharacters: FetchedCharactersData) => {
-      setCharacters(fetchedCharacters);
-    },
-  });
+  const [searchParams] = useSearchParams();
 
-  if (isLoading) return <div>Consulting the spellbook...</div>;
-  if (isError) return <div>Error retrieving spells</div>;
+  const { isError, isLoading } = useQuery(
+    [
+      "characters",
+      {
+        name: searchParams.get("name") || "",
+        page: searchParams.get("page") || "1",
+      },
+    ],
+    fetchCharacters,
+    {
+      onSuccess: (fetchedCharacters: FetchedCharactersData) => {
+        setCharacters(fetchedCharacters);
+      },
+    }
+  );
 
   return (
     <div>
-      <ul className={styles.charactersCards}>
-        {characters.map((character) => (
-          <li className={styles.characterCard} key={character.id}>
-            <CharacterCard character={character} />
-          </li>
-        ))}
-      </ul>
+      <SearchBar />
+      {isLoading && <Loader />}
+      {isError && <span>Error retrieving characters</span>}
+      {!isLoading && !isError && (
+        <ul className={styles.charactersCards}>
+          {characters.map((character) => (
+            <li className={styles.characterCard} key={character.id}>
+              <CharacterCard {...character} />
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   );
 };

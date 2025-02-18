@@ -4,10 +4,11 @@ import { FavouriteCharacters } from "src/pages/favourite-characters";
 import { HomePage } from "src/pages/homepage";
 import { Layout } from "src/pages/layout";
 import { NotFound } from "src/pages/not-found";
+import { ROUTES } from "./routes";
 
 const router = createBrowserRouter([
   {
-    path: "/rick-morty-characters/",
+    path: ROUTES.HOMEPAGE,
     element: (
       <Layout>
         <HomePage />
@@ -15,7 +16,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/rick-morty-characters/details",
+    path: ROUTES.DETAILS,
     element: (
       <Layout>
         <CharacterDetails />
@@ -23,7 +24,7 @@ const router = createBrowserRouter([
     ),
   },
   {
-    path: "/rick-morty-characters/favourites",
+    path: ROUTES.FAVOURITES,
     element: (
       <Layout>
         <FavouriteCharacters />

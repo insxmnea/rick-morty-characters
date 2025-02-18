@@ -1,0 +1,19 @@
+.wrapper {
+  background-color: var(--color-gray-3);
+  display: flex;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--box-shadow);
+}
+
+.image {
+  width: 300px;
+  border-right: var(--border);
+}
+
+.info {
+  margin: 10px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
