@@ -14,3 +14,10 @@
   height: 100%;
   width: var(--character-card-width);
 }
+
+.pagination {
+  margin-top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

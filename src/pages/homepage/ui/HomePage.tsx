@@ -10,9 +10,10 @@ import { CharacterCard } from "src/widgets/character-card/ui/CharacterCard";
 import { Loader } from "src/shared/ui/loader";
 import { useSearchParams } from "react-router-dom";
 import { SearchBar } from "src/widgets/search-bar";
+import { Pagination } from "src/features/pagination";
 
 export const HomePage: FC = () => {
-  const { characters, setCharacters } = useCharactersStore();
+  const { info, characters, setCharacters } = useCharactersStore();
   const [searchParams] = useSearchParams();
 
   const { isError, isLoading } = useQuery(
@@ -37,13 +38,19 @@ export const HomePage: FC = () => {
       {isLoading && <Loader />}
       {isError && <span>Error retrieving characters</span>}
       {!isLoading && !isError && (
-        <ul className={styles.charactersCards}>
-          {characters.map((character) => (
-            <li className={styles.characterCard} key={character.id}>
-              <CharacterCard {...character} />
-            </li>
-          ))}
-        </ul>
+        <>
+          <ul className={styles.charactersCards}>
+            {characters.map((character) => (
+              <li className={styles.characterCard} key={character.id}>
+                <CharacterCard {...character} />
+              </li>
+            ))}
+          </ul>
+
+          <div className={styles.pagination}>
+            <Pagination totalPageCount={info.pages} />
+          </div>
+        </>
       )}
     </div>
   );
