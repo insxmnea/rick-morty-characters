@@ -25,11 +25,17 @@ export const CharacterDetails: FC = () => {
 
   return (
     <div className={styles.wrapper}>
-      <img
-        className={styles.image}
-        src={character.image}
-        alt={character.name}
-      />
+      <div className={styles.container}>
+        <img
+          className={styles.image}
+          src={character.image}
+          alt={character.name}
+        />
+
+        <div className={styles.favourite}>
+          <FavouriteButton id={character.id} />
+        </div>
+      </div>
 
       <div className={styles.info}>
         <span>Name: {character.name}</span>
@@ -38,9 +44,6 @@ export const CharacterDetails: FC = () => {
         <span>Type: {character.type}</span>
         <span>Gender: {character.gender}</span>
         <span>Origin: {character.origin.name}</span>
-        <div className={styles.favourite}>
-          <FavouriteButton id={character.id} />
-        </div>
       </div>
     </div>
   );
