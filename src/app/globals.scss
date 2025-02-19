@@ -8,6 +8,7 @@
   --color-gray-3: #1e2125;
 
   --color-purple: #9575cd;
+  --color-pink: #fe216c;
 
   --border: 1px solid var(--color-white);
   --border-purple: 1px solid var(--color-purple);
@@ -57,21 +58,7 @@ body {
 button {
   cursor: pointer;
   border: none;
-  outline: none;
-  background-color: var(--color-gray-2);
-  color: var(--color-white);
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-size: 16px;
-  font-weight: 500;
-
-  box-shadow: var(--box-shadow);
-
-  transition: all 0.2s ease-in-out;
-}
-
-button:hover {
-  background-color: var(--color-gray-3);
+  background-color: transparent;
 }
 
 input {

@@ -7,8 +7,9 @@
 }
 
 .image {
-  width: 300px;
+  max-width: 300px;
   border-right: var(--border);
+  object-fit: cover;
 }
 
 .info {
@@ -16,4 +17,12 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
+}
+
+.favourite {
+  display: flex;
+  width: 100%;
+  height: 30px;
+  background-color: var(--color-gray-1);
+  border-radius: 5px;
 }

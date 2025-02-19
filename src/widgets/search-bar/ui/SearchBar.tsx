@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, KeyboardEvent, useState } from "react";
 import styles from "./SearchBar.module.scss";
-import searchIcon from "./../../../shared/assets/icons/search.svg";
 import { useSearchParams } from "react-router-dom";
+import { SearchIcon } from "src/shared/assets/icons";
 
 export const SearchBar: FC = () => {
   const [query, setQuery] = useState("");
@@ -37,7 +37,7 @@ export const SearchBar: FC = () => {
         onKeyDown={(event) => handleKeyDown(event)}
       />
       <button className={styles.button} onClick={() => onSearch(query)}>
-        <img src={searchIcon} className={styles.icon} alt="search icon" />
+        <SearchIcon />
       </button>
     </div>
   );

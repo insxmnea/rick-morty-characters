@@ -35,11 +35,14 @@ type FetchedCharactersData = {
   results: Character[];
 };
 
-type CharactersState = {
+type CharactersStore = {
   info: Info;
   characters: Character[];
-  addCharacter: (character: Character) => void;
+  favourites: Character[];
   setCharacters: (characters: FetchedCharactersData) => void;
+  addFavourite: (character: Character) => void;
+  removeFavourite: (id: number) => void;
+  isFavourite: (id: number) => boolean;
 };
 
-export type { Info, Character, CharactersState, FetchedCharactersData };
+export type { Info, Character, CharactersStore, FetchedCharactersData };

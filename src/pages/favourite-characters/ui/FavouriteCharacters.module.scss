@@ -1,0 +1,16 @@
+.charactersCards {
+  display: grid;
+
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(var(--character-card-width), 1fr)
+  );
+  gap: 32px;
+  justify-items: center;
+  align-items: start;
+}
+
+.characterCard {
+  height: 100%;
+  width: var(--character-card-width);
+}

@@ -1,5 +1,6 @@
 .container {
   height: 100%;
+  position: relative;
 }
 
 .wrapper {
@@ -34,4 +35,11 @@
   border-top: var(--border);
   padding: 8px;
   height: 100%;
+}
+
+.favourite {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
 }

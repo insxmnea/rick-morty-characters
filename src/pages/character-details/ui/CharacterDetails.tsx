@@ -4,6 +4,7 @@ import { useSearchParams } from "react-router-dom";
 import { Character, fetchCharacter } from "src/entities/character";
 import styles from "./CharacterDetails.module.scss";
 import { Loader } from "src/shared/ui/loader";
+import { FavouriteButton } from "src/shared/ui/favourite-button";
 
 export const CharacterDetails: FC = () => {
   const [character, setCharacter] = useState<Character | null>();
@@ -37,6 +38,9 @@ export const CharacterDetails: FC = () => {
         <span>Type: {character.type}</span>
         <span>Gender: {character.gender}</span>
         <span>Origin: {character.origin.name}</span>
+        <div className={styles.favourite}>
+          <FavouriteButton id={character.id} />
+        </div>
       </div>
     </div>
   );
