@@ -10,7 +10,11 @@ export const Layout: FC<PropsWithChildren> = ({ children }) => {
       <Header />
       <div className={styles.wrapper}>{children}</div>
 
-      <ToastContainer autoClose={2000} hideProgressBar={true} />
+      <ToastContainer
+        position="bottom-right"
+        autoClose={2000}
+        hideProgressBar={true}
+      />
       <Footer />
     </main>
   );
