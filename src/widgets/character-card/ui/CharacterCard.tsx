@@ -3,7 +3,7 @@ import { Character } from "src/entities/character";
 import styles from "./CharacterCard.module.scss";
 import { Link } from "react-router-dom";
 import { ROUTES } from "src/app/router";
-import { FavouriteButton } from "src/shared/ui/favourite-button";
+import { FavouriteButton } from "src/widgets/favourite-button";
 
 interface Props extends Character {}
 
@@ -20,7 +20,7 @@ export const CharacterCard: FC<Props> = (props) => {
       </Link>
 
       <div className={styles.favourite}>
-        <FavouriteButton id={props.id} />
+        <FavouriteButton {...props} />
       </div>
     </div>
   );
