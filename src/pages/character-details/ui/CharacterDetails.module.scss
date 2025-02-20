@@ -1,15 +1,28 @@
+@import "./../../../app/breakpoints.scss";
+
 .wrapper {
   background-color: var(--color-gray-3);
   display: flex;
   border-radius: 12px;
   overflow: hidden;
   box-shadow: var(--box-shadow);
+  flex-direction: column;
+
+  @include rwd($tablet) {
+    flex-direction: row;
+  }
 }
 
 .image {
-  max-width: 300px;
-  border-right: var(--border);
+  // max-width: 300px;
+  width: 100%;
   object-fit: cover;
+
+  @include rwd($tablet) {
+    max-width: 300px;
+    flex-direction: row;
+    border-right: var(--border);
+  }
 }
 
 .info {
