@@ -1,9 +1,10 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import styles from "./HomePage.module.scss";
 import {
+  Character,
   fetchCharacters,
   FetchedCharactersData,
-  useCharactersStore,
+  Info,
 } from "src/entities/character";
 import { useQuery } from "react-query";
 import { CharacterCard } from "src/widgets/character-card/ui/CharacterCard";
@@ -13,8 +14,14 @@ import { SearchBar } from "src/widgets/search-bar";
 import { Pagination } from "src/features/pagination";
 
 export const HomePage: FC = () => {
-  const { info, characters, setCharacters } = useCharactersStore();
   const [searchParams] = useSearchParams();
+  const [characters, setCharacters] = useState<Character[]>([]);
+  const [info, setInfo] = useState<Info>({
+    count: 0,
+    next: null,
+    pages: 0,
+    prev: null,
+  });
 
   const { isError, isLoading } = useQuery(
     [
@@ -27,7 +34,8 @@ export const HomePage: FC = () => {
     fetchCharacters,
     {
       onSuccess: (fetchedCharacters: FetchedCharactersData) => {
-        setCharacters(fetchedCharacters);
+        setCharacters(fetchedCharacters.results);
+        setInfo(fetchedCharacters.info);
       },
     }
   );

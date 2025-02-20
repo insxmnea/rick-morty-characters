@@ -36,10 +36,7 @@ type FetchedCharactersData = {
 };
 
 type CharactersStore = {
-  info: Info;
-  characters: Character[];
   favourites: Character[];
-  setCharacters: (characters: FetchedCharactersData) => void;
   addFavourite: (character: Character) => void;
   removeFavourite: (id: number) => void;
   isFavourite: (id: number) => boolean;
